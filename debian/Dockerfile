@@ -5,6 +5,6 @@ COPY scripts /scripts
 ENV PATH $PATH:/scripts
 
 RUN set -xe; \
-    apt-get-install.sh man-db;
+    apt-get-install.sh dnsutils man-db strace;
 
 CMD ["bash"]

@@ -5,6 +5,12 @@ COPY scripts /scripts
 ENV PATH $PATH:/scripts
 
 RUN set -xe; \
-    apt-get-install.sh dnsutils man-db strace;
+    apt-get-install.sh dnsutils git make man-db strace; \
+    git clone --depth 1 git://git.kernel.org/pub/scm/docs/man-pages/man-pages.git; \
+    cd man-pages; \
+    make; \
+    cd ..; \
+    rm -rf man-pages; \
+    apt-get-purge.sh git make;
 
 CMD ["bash"]

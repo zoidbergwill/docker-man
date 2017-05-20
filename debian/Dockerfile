@@ -5,7 +5,7 @@ COPY scripts /scripts
 ENV PATH $PATH:/scripts
 
 RUN set -xe; \
-    apt-get-install.sh dnsutils git make man-db strace; \
+    apt-get-install.sh dnsutils git less make man-db strace tcpdump; \
     git clone --depth 1 git://git.kernel.org/pub/scm/docs/man-pages/man-pages.git; \
     cd man-pages; \
     make; \
